@@ -1,3 +1,4 @@
+from models.customer import Customer
 import sqlite3
 
 def display_customers():
@@ -12,6 +13,7 @@ def display_customers():
     else:
         for customer in customers:
             print(f"ID: {customer[0]}, Name: {customer[1]}, Address: {customer[2]}, Contact Info: {customer[3]}")
+
 
 def display_packages():
     conn = sqlite3.connect('cargo.db')
@@ -51,6 +53,39 @@ def display_tracking():
     else:
         for track in tracking:
             print(f"ID: {track[0]}, Status: {track[1]}, Location: {track[2]}, Shipment ID: {track[3]}")
+
+
+# def delete_customer():
+#     id_= input ("costomer_id")
+#     if customer:= customer.get_all(id_):
+#         customer.delete()
+#         print (f'Customer with ID={id_} has been deleted.')
+#     else:
+#         print ('Customer not found.')
+def delete_customer():
+    customer_id = input("Enter the ID of the customer you want to delete: ")
+
+    # Retrieve the customer by ID
+    customer = Customer.get_by_id(customer_id)
+
+    if customer:
+        print("Customer found:")
+        print(f"ID: {customer.id}, Name: {customer.name}, Address: {customer.address}, Contact Info: {customer.contact_info}")
+        
+        # Ask for confirmation before deletion
+        confirmation = input("Are you sure you want to delete this customer? (yes/no): ").lower()
+        if confirmation == "yes":
+            # Delete the customer
+            customer.delete()
+            print("Customer deleted successfully!")
+        else:
+            print("Deletion cancelled.")
+    else:
+        print("Customer not found.")
+
+
+# def add_to_database():
+
 
 if __name__ == "__main__":
     print("This script contains helper functions for displaying data from the database.")

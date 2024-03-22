@@ -1,4 +1,4 @@
-from helpers import display_customers, display_packages, display_shipments, display_tracking
+from helpers import display_customers, display_packages, display_shipments, display_tracking, delete_customer
 from models.customer import Customer
 from models.package import Package
 from models.shipment import Shipment
@@ -33,7 +33,8 @@ def customer_menu():
         print("\nCustomer Menu:")
         print("1. Add Customer")
         print("2. Display Customers")
-        print("3. Back to Main Menu")
+        print("3. Delete Customer")
+        print("4. Back to Main Menu")
         choice = input("Enter your choice: ")
 
         if choice == '1':
@@ -47,6 +48,9 @@ def customer_menu():
             print("\nList of Customers:")
             display_customers()
         elif choice == '3':
+            delete_customer()
+            
+        elif choice == '4':
             break
         else:
             print("Invalid choice. Please enter a number from 1 to 3.")
