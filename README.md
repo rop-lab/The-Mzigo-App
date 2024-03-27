@@ -1,40 +1,7 @@
 # The-Mzigo-App
 
-# customer.py
+## Customer Management System
 This Python code provides a simple Customer Management System using SQLite as the database backend.
-
-The application allows users to create, read, update and delete customers in the system. It also includes functionalities for adding new products. 
-## Installation and Usage:
-1. Clone this repository to your local machine
-2. Make sure you have Python installed on your  system (version 3.6 or above)
-3. Open terminal/command prompt, navigate to the cloned folder
-
-## Usage
-1. Instantiate the Customer class with necessary parameters such as name, address, and contact information.
-2. Use the save_to_db() method to save the customer data to the SQLite database.
-3. Retrieve all customers from the database using the get_all() class method.
-4. Retrieve a specific customer by ID using the get_by_id(customer_id) class method.
-
-
-Customer Management System
-This Python code provides a simple Customer Management System using SQLite as the database backend.
-
-Requirements
-Python 3.x
-SQLite3
-Installation
-Clone or download the repository.
-Ensure you have Python and SQLite installed on your system.
-Run the code using any Python IDE or execute it via command line.
-Usage
-Instantiate the Customer class with necessary parameters such as name, address, and contact information.
-Use the save_to_db() method to save the customer data to the SQLite database.
-Retrieve all customers from the database using the get_all() class method.
-Retrieve a specific customer by ID using the get_by_id(customer_id) class method.
-Example
-python
-Copy code
-from customer_management import Customer
 
 # Create a new customer
 customer1 = Customer("John Doe", "123 Main St", "john@example.com")
@@ -87,3 +54,42 @@ The SQLite database schema consists of a single table named packages with the fo
 - weight: Real number field to store the weight of the package.
 - dimensions: Text field to store the dimensions of the package.
 - shipment_id: Integer field to store the ID of the shipment associated with the package.
+
+## shipment.py
+# Shipment Management System
+
+This Python code provides functionality for managing shipments using SQLite database.
+
+## Features
+
+- Create new shipments
+- Retrieve all shipments
+
+## Prerequisites
+
+- Python 3.x
+- SQLite
+
+## Installation
+
+1. Clone the repository:
+
+2. Navigate to the project directory:
+
+
+3. Ensure you have SQLite installed on your system.
+
+## Usage
+
+1. Import the `Shipment` class into your Python script:
+
+```python
+from shipment import Shipment
+
+- Create a new shipment:
+shipment = Shipment(date='2024-03-27', status='In transit', origin='City A', destination='City B', customer_id=123)
+shipment.save_to_db()
+
+Retrieve all shipments:
+shipments = Shipment.get_all()
+print(shipments)
