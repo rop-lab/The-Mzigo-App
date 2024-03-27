@@ -93,3 +93,46 @@ shipment.save_to_db()
 Retrieve all shipments:
 shipments = Shipment.get_all()
 print(shipments)
+
+
+## Shipment Tracking System
+
+This Python code provides functionality for tracking shipments using SQLite database.
+
+## Features
+
+- Record shipment status and location updates
+- Retrieve all tracking information
+
+## Prerequisites
+
+- Python 3.x
+- SQLite
+
+## Installation
+
+1. Clone the repository:
+
+
+2. Navigate to the project directory:
+
+
+3. Ensure you have SQLite installed on your system.
+
+## Usage
+
+1. Import the `Tracking` class into your Python script:
+
+```python
+from tracking import Tracking
+
+Record a shipment status update:
+
+tracking = Tracking(status='In transit', location='City A', shipment_id=123)
+tracking.save_to_db()
+
+Retrieve all tracking information:
+
+tracking_info = Tracking.get_all()
+print(tracking_info)
+
